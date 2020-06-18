@@ -18,13 +18,13 @@ public class CharacterSpawn : MonoBehaviour
         CameraPosition = MainCamera.transform.position;
         if (Input.GetKey(KeyCode.D))
         {
-            PersonPosition.x += 0.01f;
-            CameraPosition.x += 0.01f;
+            PersonPosition.x += 0.07f;
+            CameraPosition.x += 0.07f;
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            PersonPosition.x -= 0.01f;
-            CameraPosition.x -= 0.01f;
+            PersonPosition.x -= 0.07f;
+            CameraPosition.x -= 0.07f;
         }
         OurCharacter.transform.position = PersonPosition;
         MainCamera.transform.position = CameraPosition;
