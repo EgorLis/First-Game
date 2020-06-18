@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class CharacterSpawn : MonoBehaviour
 {
+
     public GameObject OurCharacter;
     public GameObject MainCamera;
-    private float nextActionTime = 0.0f;
-    public float period = 0.1f;
+   // private float nextActionTime = 0.0f;
+   // public float period = 0.1f;
     // Start is called before the first frame update
     void ChangePosition()
     {
         Vector3 PersonPosition = new Vector3(0, 0);
         Vector3 CameraPosition = new Vector3(0, 0);
         PersonPosition = OurCharacter.transform.position;
-        PersonPosition.x += 0.2f;
         CameraPosition = MainCamera.transform.position;
-        CameraPosition.x += 0.2f;
+        if (Input.GetKey(KeyCode.D))
+        {
+            PersonPosition.x += 0.01f;
+            CameraPosition.x += 0.01f;
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            PersonPosition.x -= 0.01f;
+            CameraPosition.x -= 0.01f;
+        }
         OurCharacter.transform.position = PersonPosition;
         MainCamera.transform.position = CameraPosition;
     }
@@ -28,10 +37,6 @@ public class CharacterSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > nextActionTime)
-        {
-            nextActionTime += period;
-            ChangePosition();
-        }
+      ChangePosition();
     }
 }
