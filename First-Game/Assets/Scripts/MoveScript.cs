@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveScript : MonoBehaviour
 {
-
+    public SpriteRenderer PersonSprite;
     public GameObject OurCharacter;
     public GameObject MainCamera;
    // private float nextActionTime = 0.0f;
@@ -21,15 +21,32 @@ public class MoveScript : MonoBehaviour
         else if(Input.GetKey(KeyCode.S))
         {
             PersonPosition.y -= 0.07f;
+
         }
         if (Input.GetKey(KeyCode.D))
         {
             PersonPosition.x += 0.07f;
-        
+            if (PersonSprite.flipX)
+            {
+
+            }
+            else
+            {
+                PersonSprite.flipX = true;
+            }
+
         }
         else if (Input.GetKey(KeyCode.A))
         {
             PersonPosition.x -= 0.07f;
+            if (!PersonSprite.flipX)
+            {
+
+            }
+            else
+            {
+                PersonSprite.flipX = false;
+            }
         }
         OurCharacter.transform.position = PersonPosition;
     }
