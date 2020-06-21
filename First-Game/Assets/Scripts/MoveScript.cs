@@ -82,6 +82,7 @@ public class MoveScript : MonoBehaviour
         CrouchControl();
         ChangePosition();
         Vector3 CameraPosition = new Vector3(0, 0);
+        CameraPosition = MainCamera.transform.position;
         CameraPosition.x = OurCharacter.transform.position.x;
         CameraPosition.y = OurCharacter.transform.position.y;
         MainCamera.transform.position = CameraPosition;
