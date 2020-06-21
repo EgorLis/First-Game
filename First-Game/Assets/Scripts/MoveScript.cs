@@ -36,6 +36,7 @@ public class MoveScript : MonoBehaviour
         if(Input.GetKey(KeyCode.W))
         {
             PersonPosition.y += MoveCoeffi;
+
         }
         else if(Input.GetKey(KeyCode.S))
         {
@@ -45,21 +46,6 @@ public class MoveScript : MonoBehaviour
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             PersonPosition.x += MoveCoeffi;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            PersonPosition.x -= MoveCoeffi;
-            PersonPosition.y += 0.07f;
-        }
-        else if(Input.GetKey(KeyCode.S))
-        {
-            PersonPosition.y -= 0.07f;
-
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            PersonPosition.x += 0.07f;
             if (PersonSprite.flipX)
             {
 
@@ -68,11 +54,11 @@ public class MoveScript : MonoBehaviour
             {
                 PersonSprite.flipX = true;
             }
-
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            PersonPosition.x -= 0.07f;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            PersonPosition.x -= MoveCoeffi;
             if (!PersonSprite.flipX)
             {
 
@@ -81,8 +67,8 @@ public class MoveScript : MonoBehaviour
             {
                 PersonSprite.flipX = false;
             }
-
         }
+       
         OurCharacter.transform.position = PersonPosition;
     }
     void Start()
@@ -96,10 +82,8 @@ public class MoveScript : MonoBehaviour
         CrouchControl();
         ChangePosition();
         Vector3 CameraPosition = new Vector3(0, 0);
-        CameraPosition = MainCamera.transform.position;
         CameraPosition.x = OurCharacter.transform.position.x;
         CameraPosition.y = OurCharacter.transform.position.y;
         MainCamera.transform.position = CameraPosition;
-
     }
 }
