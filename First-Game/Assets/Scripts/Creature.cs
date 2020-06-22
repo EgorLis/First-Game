@@ -19,9 +19,4 @@ public class Creature : MonoBehaviour
             Destroy(person);
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        m_health -= 20;
-        print("i am dying");
-    }
 }
