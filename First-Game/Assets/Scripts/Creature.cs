@@ -7,6 +7,7 @@ using UnityEngine;
 public class Creature : MonoBehaviour
 {
     public GameObject person;
+    public int max_health = 100;
     public int m_health = 100;
     private Inventory m_inventory;
     private WeaponTypes m_activeWeapon;
