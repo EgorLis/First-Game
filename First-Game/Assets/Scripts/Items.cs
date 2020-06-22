@@ -11,6 +11,7 @@ public enum ItemTypes
     WEAPON = 1,
     FOOD = 2,
     QUEST_ITEMS = 3,
+    OTHER = 4
 }
 
 public enum WeaponTypes
@@ -32,6 +33,10 @@ public class Items : MonoBehaviour
         {
             return m_count;
         }
+        set
+        {
+            m_count = value;
+        }
     }
 
     public ItemTypes Type
@@ -39,6 +44,10 @@ public class Items : MonoBehaviour
         get
         {
             return m_type;
+        }
+        set
+        {
+            m_type = value;
         }
     }
 
@@ -48,6 +57,10 @@ public class Items : MonoBehaviour
         {
             return m_name;
         }
+        set
+        {
+            m_name = value;
+        }
     }
     public Items()
     {
@@ -56,4 +69,16 @@ public class Items : MonoBehaviour
         m_name = "";
     }
     
+}
+
+public class ball:Items
+{
+    public ball() 
+    {
+        Count = 1;
+        Type = ItemTypes.OTHER;
+        Name = "ball";
+    }
+
+
 }

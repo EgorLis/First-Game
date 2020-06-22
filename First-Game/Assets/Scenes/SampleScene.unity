@@ -1318,6 +1318,7 @@ MonoBehaviour:
   PersonSprite: {fileID: 303269755}
   OurCharacter: {fileID: 303269754}
   MainCamera: {fileID: 313192836}
+  MeleeAttackDistance: 8
 --- !u!1 &1448858434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,9 +1543,10 @@ GameObject:
   - component: {fileID: 1809372089}
   - component: {fileID: 1809372088}
   - component: {fileID: 1809372087}
+  - component: {fileID: 1809372091}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1673,6 +1675,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1809372091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809372085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6d2068119229040b89a9640c3f4827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  person: {fileID: 1809372085}
+  m_health: 50
+  MoveCoffi: 0.02
 --- !u!1 &1839080996
 GameObject:
   m_ObjectHideFlags: 0

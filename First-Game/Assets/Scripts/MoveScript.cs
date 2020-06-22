@@ -7,6 +7,7 @@ public class MoveScript : MonoBehaviour
     public SpriteRenderer PersonSprite;
     public GameObject OurCharacter;
     public GameObject MainCamera;
+    public float MeleeAttackDistance = 10;
     private bool isCrouch = false;
     private float MoveCoeffi = 0.07f;
     
@@ -66,6 +67,21 @@ public class MoveScript : MonoBehaviour
             else
             {
                 PersonSprite.flipX = false;
+            }
+        }
+        // боевка ближняя
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            Creature Enemy;
+            Transform EnemyTarget;
+            if(GameObject.FindGameObjectWithTag("NPC"))
+            {
+                EnemyTarget = GameObject.FindGameObjectWithTag("NPC").GetComponent<Transform>();
+                if(Vector2.Distance(OurCharacter.transform.position,EnemyTarget.position) <= MeleeAttackDistance )
+                {
+                    Enemy = GameObject.FindGameObjectWithTag("NPC").GetComponent<Creature>();
+                    Enemy.m_health -= 50;
+                }
             }
         }
        
