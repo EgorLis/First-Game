@@ -13,6 +13,12 @@ public enum ItemTypes
     QUEST_ITEMS = 3,
 }
 
+public enum WeaponTypes
+{
+    Melee = 1,
+    Distance 
+}
+
 
 public class Items : MonoBehaviour
 {

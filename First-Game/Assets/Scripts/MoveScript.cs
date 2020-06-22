@@ -79,12 +79,18 @@ public class MoveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CrouchControl();
-        ChangePosition();
-        Vector3 CameraPosition = new Vector3(0, 0);
-        CameraPosition = MainCamera.transform.position;
-        CameraPosition.x = OurCharacter.transform.position.x;
-        CameraPosition.y = OurCharacter.transform.position.y;
-        MainCamera.transform.position = CameraPosition;
+        if(OurCharacter==null)
+        {
+        }
+        else
+        {
+            CrouchControl();
+            ChangePosition();
+            Vector3 CameraPosition = new Vector3(0, 0);
+            CameraPosition = MainCamera.transform.position;
+            CameraPosition.x = OurCharacter.transform.position.x;
+            CameraPosition.y = OurCharacter.transform.position.y;
+            MainCamera.transform.position = CameraPosition;
+        }
     }
 }
