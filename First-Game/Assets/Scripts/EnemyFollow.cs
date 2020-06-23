@@ -16,6 +16,7 @@ public class EnemyFollow : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        nextActionTime = Time.time;
     }
 
     // Update is called once per frame

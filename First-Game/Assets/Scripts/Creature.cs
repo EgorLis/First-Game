@@ -14,6 +14,11 @@ public class Creature : MonoBehaviour
     public float MoveCoffi = 0.02f;
 
     // Update is called once per frame
+
+    void Start()
+    {
+        m_health = max_health;
+    }
     void Update()
     {
         if (m_health <= 0)
