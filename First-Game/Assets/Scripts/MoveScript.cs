@@ -10,10 +10,30 @@ public class MoveScript : MonoBehaviour
     public float MeleeAttackDistance = 10;
     private bool isCrouch = false;
     private float MoveCoeffi = 0.07f;
+    public Animator BatAnimation;
     
    // private float nextActionTime = 0.0f;
    // public float period = 0.1f;
     // Start is called before the first frame update
+
+    public void MeleeAtack()
+    {
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            BatAnimation.Play("BitaAnimation");
+            Creature Enemy;
+            Transform EnemyTarget;
+            if (GameObject.FindGameObjectWithTag("NPC"))
+            {
+                EnemyTarget = GameObject.FindGameObjectWithTag("NPC").GetComponent<Transform>();
+                if (Vector2.Distance(OurCharacter.transform.position, EnemyTarget.position) <= MeleeAttackDistance)
+                {
+                    Enemy = GameObject.FindGameObjectWithTag("NPC").GetComponent<Creature>();
+                    Enemy.m_health -= 50;
+                }
+            }
+        }
+    }
     public void CrouchControl()
     {
         if (Input.GetKey(KeyCode.R))
@@ -69,22 +89,6 @@ public class MoveScript : MonoBehaviour
                 PersonSprite.flipX = false;
             }
         }
-        // боевка ближняя
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            Creature Enemy;
-            Transform EnemyTarget;
-            if(GameObject.FindGameObjectWithTag("NPC"))
-            {
-                EnemyTarget = GameObject.FindGameObjectWithTag("NPC").GetComponent<Transform>();
-                if(Vector2.Distance(OurCharacter.transform.position,EnemyTarget.position) <= MeleeAttackDistance )
-                {
-                    Enemy = GameObject.FindGameObjectWithTag("NPC").GetComponent<Creature>();
-                    Enemy.m_health -= 50;
-                }
-            }
-        }
-       
         OurCharacter.transform.position = PersonPosition;
     }
     void Start()
@@ -100,6 +104,7 @@ public class MoveScript : MonoBehaviour
         }
         else
         {
+            MeleeAtack();
             CrouchControl();
             ChangePosition();
             Vector3 CameraPosition = new Vector3(0, 0);
