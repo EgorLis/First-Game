@@ -21,6 +21,8 @@ public class HealthBar : MonoBehaviour
         if(GameObject.FindGameObjectWithTag("Player"))
         {
             scrollbar.size =  (float)person.m_health / (float)person.max_health;
+            if (scrollbar.size == 0)
+                scrollbar.handleRect.gameObject.SetActive(false);
         }
     }
 }
